@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Aplicação</title>
-    <link rel="stylesheet" href=style.css"> 
-  </head>
-  <body>
-    <h1>Bem-vindo à minha aplicação</h1>
-    <ul id="product-list"></ul>
-    <script src="script.js"></script>
-  </body>
+</head>
+<body>
+    <h1>Bem-vindo ao meu site!</h1>
+    <button onclick="buscarDados()">Buscar Dados</button>
+    <ul id="lista"></ul>
+
+    <script>
+        async function buscarDados() {
+            const response = await fetch('https://meu-backend.back4app.io/dados');
+            const data = await response.json();
+            const lista = document.getElementById('lista');
+            lista.innerHTML = "";
+            data.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item.nome;
+                lista.appendChild(li);
+            });
+        }
+    </script>
+</body>
 </html>
