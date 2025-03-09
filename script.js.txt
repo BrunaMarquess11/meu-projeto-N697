@@ -1,0 +1,10 @@
+fetch('https://seu-backend.back4app.io/produtos')
+    .then(response => response.json())
+    .then(data => {
+        const lista = document.getElementById('lista-produtos');
+        data.forEach(produto => {
+            const item = document.createElement('li');
+            item.textContent = produto.nome;
+            lista.appendChild(item);
+        });
+    });
