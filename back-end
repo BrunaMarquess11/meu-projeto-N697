@@ -1,1 +1,29 @@
+erá dados ao front-end.
 
+No GitHub , chore a pasta backend.
+
+Dentro da pasta, crie um arquivo chamado server.js:
+
+Javascript-escritor
+
+Copiar
+
+Editar
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+app.use(cors());
+
+const dados = [
+    { id: 1, nome: 'Produto A' },
+    { id: 2, nome: 'Produto B' }
+];
+
+app.get('/dados', (req, res) => {
+    res.json(dados);
+});
+
+app.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000');
+});
